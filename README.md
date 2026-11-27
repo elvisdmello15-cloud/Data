@@ -17,3 +17,8 @@ File used: all_stocks_5yr.csv (dataset not uploaded here)
 
 ## Tools
 PostgreSQL 16, pgAdmin 4, Power BI Desktop
+
+## Day 2 - Coverage check (Q01)
+- Tickers in dataset: 505 (matches Day 1)
+- 470 tickers have the full 1,259 trading days; 35 have fewer (late listings / spin-offs, e.g. APTV, DWDP, BHF)
+- All tickers end on 2018-02-07
