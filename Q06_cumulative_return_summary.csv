@@ -1,0 +1,15 @@
+-- Purpose : Cumulative return per ticker from its first date, using log returns
+-- Grain   : one row per ticker per day (view); one row per ticker (summary)
+-- Question: Q06 - Cumulative Returns
+
+-- Part 2: summary, ranked
+WITH final AS (
+  SELECT DISTINCT ON (ticker)
+         ticker, trade_date AS last_date,
+         ROUND(cum_return * 100, 2) AS cum_return_pct
+  FROM cumulative_returns
+  ORDER BY ticker, trade_date DESC
+)
+SELECT RANK() OVER (ORDER BY cum_return_pct DESC) AS rank, *
+FROM final
+ORDER BY rank
